@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medi:edimap xmlns:medi="http://www.milyn.org/schema/edi-message-mapping-1.0.xsd">
+
+	<medi:description name="DVD Order" version="1.0" />
+
+	<medi:delimiters segment=";" field="," component="^" sub-component="~" />
+
+	<medi:segments xmltag="bif">
+	
+		<medi:segment segcode="HDR" xmltag="header">
+			<medi:field xmltag="order-id" required="false" />
+			<medi:field xmltag="status-code" required="false" />
+			<medi:field xmltag="net-amount" required="false" />
+			<medi:field xmltag="total-amount" />
+			<medi:field xmltag="tax" />
+			<medi:field xmltag="date" />
+			<medi:segment segcode="CUS" xmltag="customer-details">
+				<medi:field xmltag="username" required="false"/>
+				<medi:field xmltag="name" required="false" >
+					<medi:component xmltag="firstname" required="false"/>
+					<medi:component xmltag="lastname" required="false"/>
+				</medi:field>
+				<medi:field xmltag="state" required="false" />
+			</medi:segment>
+		</medi:segment>
+
+		<medi:segment segcode="ORD" xmltag="order-item" maxOccurs="-1">
+			<medi:field xmltag="position" />
+			<medi:field xmltag="quantity" />
+			<medi:field xmltag="product-id" />
+			<medi:field xmltag="title" />
+			<medi:field xmltag="price" />
+		</medi:segment>
+
+	</medi:segments>
+	
+</medi:edimap>

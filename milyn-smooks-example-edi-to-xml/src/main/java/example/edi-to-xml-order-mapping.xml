@@ -1,0 +1,260 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<medi:edimap xmlns:medi="http://www.milyn.org/schema/edi-message-mapping-1.5.xsd">
+
+	<medi:description name="AviancaPoC" version="1.0" />
+
+	<medi:delimiters segment="&#28;" field="&#29;"
+		component="&#31;" sub-component="~" />
+
+	<medi:segments xmltag="bif">
+		<medi:segment segcode="UNH" xmltag="message">
+			<medi:field xmltag="number" required="false" />
+
+			<medi:field xmltag="details">
+				<medi:component xmltag="type" required="false" />
+				<medi:component xmltag="version" required="false" />
+				<medi:component xmltag="release" required="false" />
+				<medi:component xmltag="provider" required="false" />
+			</medi:field>
+
+			<!-- Grupo 2 flightDateInformation -->
+
+			<medi:segment segcode="FDR" xmltag="flightDateDesignator">
+				<medi:field xmltag="airlineCode" required="false" />
+				<medi:field xmltag="flightNumber" required="false" />
+				<medi:field xmltag="departureDate" required="false" />
+			</medi:segment>
+
+			<medi:segment segcode="FDD" xmltag="flightLevelInfo">
+				<medi:field xmltag="flightCharacteristics0" required="false" />
+				<medi:field xmltag="flightCharacteristics1" required="false" />
+			</medi:segment>
+			<medi:segment segcode="REF" xmltag="lockId" />
+			<medi:segment segcode="STX" xmltag="dcsFlightStatus">
+				<medi:field xmltag="statusIndicator" required="false" />
+			</medi:segment>
+			<medi:segment segcode="LTS" xmltag="massComment"
+				truncatable="true">
+			</medi:segment>
+			<medi:segment segcode="IFD" xmltag="inventoryParameterFD"
+				truncatable="true">
+				<medi:field xmltag="reviewDate" required="false" />
+				<medi:field xmltag="reviewTime" required="false" />
+				<medi:field xmltag="controlType" required="false" />
+				<medi:field xmltag="currencyCode" required="false" />
+				<medi:field xmltag="isRevControlSetComplete" required="false" />
+				<medi:field xmltag="isUnderActiveRevControl" required="false" />
+
+			</medi:segment>
+			<medi:segment segcode="LTS" xmltag="userComment"
+				truncatable="true">
+			</medi:segment>
+
+			<!-- Grupo 3 Legs -->
+
+			<medi:segment segcode="APD" xmltag="AdditionalProductDetails"
+				truncatable="true">
+				<medi:field xmltag="legDetails">
+					<medi:component xmltag="NumberStops" required="false" />
+					<medi:component xmltag="LegDuration" required="false" />
+					<medi:component xmltag="Percentage" required="false" />
+					<medi:component xmltag="DaysOfOperation" required="false" />
+					<medi:component xmltag="Date_Time_Period" required="false" />
+					<medi:component xmltag="ComplexingFI" required="false" />
+					<medi:component xmltag="Place_locationID" required="false" />
+					<medi:component xmltag="boardPoint" required="false" />
+					<medi:component xmltag="offPoint" required="false" />
+				</medi:field>
+
+				<medi:segment segcode="DAT" xmltag="ScheduleTiming"
+					truncatable="true">
+					<medi:field xmltag="dateAndTimeDetails">
+						<medi:component xmltag="qualifier" required="false" />
+						<medi:component xmltag="date" required="false" />
+						<medi:component xmltag="time" required="false" />
+					</medi:field>
+					<medi:field xmltag="dateAndTimeDetails">
+						<medi:component xmltag="qualifier" required="false" />
+						<medi:component xmltag="date" required="false" />
+						<medi:component xmltag="time" required="false" />
+					</medi:field>
+				</medi:segment>
+
+				<medi:segment segcode="STX" xmltag="StatusDetails"
+					truncatable="true">
+					<medi:field xmltag="StatusIndicator" />
+				</medi:segment>
+
+				<medi:segment segcode="EQP" xmltag="aircraftInformation"
+					truncatable="true">
+
+					<medi:field xmltag="modeOfTransport" truncatable="true">
+						<medi:component xmltag="serviceType" required="false" />
+					</medi:field>
+					<medi:field xmltag="equipmentDetails" truncatable="true">
+						<medi:component xmltag="aircraftType" required="false"
+							truncatable="true" />
+						<medi:component xmltag="eqtRegistrationNumber"
+							required="false" truncatable="true" />
+					</medi:field>
+					<medi:field xmltag="companyDetails" truncatable="true">
+						<medi:component xmltag="aircraftOwner" required="false" />
+					</medi:field>
+				</medi:segment>
+
+				<medi:segment segcode="EQI" xmltag="AircraftConfigVersion1"
+					truncatable="true">
+					<medi:field xmltag="fittedConfiguration" required="false"
+						truncatable="true" />
+					<medi:field xmltag="cabinCode" required="false"
+						truncatable="true" />
+					<medi:field xmltag="cabinCapacity" required="false"
+						truncatable="true" />
+					<medi:field xmltag="qualifier" required="false"
+						truncatable="true" />
+					<medi:field xmltag="fittedConfiguration0" required="false"
+						truncatable="true" />
+					<medi:field xmltag="fittedConfiguration1" required="false"
+						truncatable="true" />
+					<medi:field xmltag="acvDetails" required="false"
+						truncatable="true">
+
+						<medi:component xmltag="aircraftID1" required="false"
+							truncatable="true" />
+						<medi:component xmltag="aircraftID2" required="false"
+							truncatable="true" />
+						<medi:component xmltag="airlineDetails" required="false"
+							truncatable="true" />
+						<medi:component xmltag="acvCode" required="false"
+							truncatable="true" />
+					</medi:field>
+
+				</medi:segment>
+				<medi:segment segcode="EQD" xmltag="saleableConfiguration"
+					truncatable="true">
+					<medi:field xmltag="cabinCode" required="false"
+						truncatable="true" />
+					<medi:field xmltag="cabinCapacity" required="false"
+						truncatable="true" />
+					<medi:field xmltag="characteristic" required="false"
+						truncatable="true" />
+					<medi:field xmltag="configurationCode" required="false"
+						truncatable="true" />
+					<medi:field xmltag="configurationDescription" required="false"
+						truncatable="true" />
+					<medi:field xmltag="cabinVersion" required="false"
+						truncatable="true" />
+				</medi:segment>
+
+
+				<!-- Grupo 4 - Group 1A 06 1Group 4 ssr Information on Special Service 
+					Requests (SSR). AVERIGUAR COMO MAPEAR LOS SEGMENTOS QUE NO ESTAN EN EL DOCUMENTO -->
+
+				<!-- <medi:segment segcode="SSR" xmltag="ssrQuota"
+					truncatable="true">
+					<medi:field xmltag="ssrDetails" truncatable="true">
+						<medi:component xmltag="ssrType" required="true" />
+						<medi:component xmltag="ssrThreshold" required="false" />
+					</medi:field>
+				
+				<medi:segment segcode="EQN" xmltag="ssrCounter" truncatable="true">
+					<medi:field xmltag="modeOfTransport" truncatable="true">
+						<medi:component xmltag="serviceType" required="true" />
+					</medi:field>
+					<medi:field xmltag="equipmentDetails" truncatable="true">
+						<medi:component xmltag="aircraftType" required="true" />
+						<medi:component xmltag="eqtRegistrationNumber"
+							required="false" />
+					</medi:field>
+					<medi:field xmltag="companyDetails" truncatable="true">
+						<medi:component xmltag="aircraftOwner" required="true" />
+					</medi:field>
+				</medi:segment>
+
+				<medi:segment segcode="SCI" xmltag="cabinCode" truncatable="true">
+					<medi:field xmltag="cabinCode" truncatable="true" />
+				</medi:segment>
+
+				<medi:segment segcode="SDT" xmltag="nest" truncatable="true">
+					<medi:field xmltag="selectionDetails" truncatable="true">
+						<medi:component xmltag="optionCode" required="true" />
+						<medi:component xmltag="optionInformation" required="true" />
+					</medi:field> 
+				</medi:segment>
+				
+				</medi:segment>
+ -->
+				
+				<medi:segment segcode="LEG" xmltag="saleableConfiguration"
+					truncatable="true">
+
+					<medi:field xmltag="crossCabinConfigInfo" truncatable="true">
+						<medi:component xmltag="crossCabinConfiguration"
+							required="true" />
+						<medi:component xmltag="crossCabinConfigList"
+							required="false" />
+					</medi:field>
+
+					<medi:field xmltag="crossCabinControls" truncatable="true" />
+				</medi:segment>
+
+<!-- 				<medi:segment segcode="EQN" xmltag="legCounters" truncatable="true">
+				<medi:field xmltag="quantityDetails" truncatable="true">
+						<medi:component xmltag="numberOfUnit" required="true" />
+						<medi:component xmltag="unitQualifier" required="false" />
+					</medi:field>
+				
+				</medi:segment>  -->
+				
+				
+				
+<!-- 		Grupo 5 / Information on all the cabins of the leg. -->
+				
+			<medi:segment segcode="EQI" xmltag="AircraftConfigVersion2"
+					truncatable="true">
+					<medi:field xmltag="fittedConfiguration" required="false"
+						truncatable="true">
+						<medi:component xmltag="cabinCode" required="false"
+							truncatable="true" />
+						<medi:component xmltag="cabinCapacity" required="false"
+							truncatable="true" />
+						<medi:component xmltag="qualifier" required="false"
+							truncatable="true" />
+					</medi:field>
+					
+					<medi:field xmltag="AdditionalRequirements" required="false"
+						truncatable="true">
+
+						<medi:component xmltag="acvDetails" required="false"
+							truncatable="true" />
+						<medi:component xmltag="airlineDetails" required="false"
+							truncatable="true" />
+						<medi:component xmltag="acvCode" required="false"
+							truncatable="true" />
+					</medi:field>
+
+				</medi:segment>
+
+			 <medi:segment segcode="CBL" xmltag="AircraftConfigVersion2" truncatable="true">
+				<medi:field xmltag="regradeAdjustment" required="false" truncatable="true"/>
+				<medi:field xmltag="maxiRegradeAdjustment" required="false" truncatable="true"/>
+				<medi:field xmltag="unbalancedAdjustment" required="false" truncatable="true"/>	
+				<medi:field xmltag="groupsConstrainingYield" required="false" truncatable="true"/>	
+				<medi:field xmltag="avsFlag" required="false" truncatable="true"/>	
+				<medi:field xmltag="notificationLevel" required="false" truncatable="true"/>
+				<medi:field xmltag="avpoolOffset" required="false" truncatable="true"/>
+				<medi:field xmltag="avpool" required="false" truncatable="true"/>
+				<medi:field xmltag="maxiGroupProportion" required="false" truncatable="true"/>
+				<medi:field xmltag="regradeCounter" required="false" truncatable="true"/>
+				<medi:field xmltag="blockedSpaceDetails" required="false" truncatable="true">
+					<medi:component xmltag="blockSpaceType" required="false" truncatable="true" />
+					<medi:component xmltag="marketingFlightDesignator" required="false" truncatable="true" />
+					<medi:component xmltag="numberSeatsBlocked" required="false" truncatable="true" />
+				</medi:field>
+			</medi:segment>
+ 
+			</medi:segment>
+
+		</medi:segment>
+	</medi:segments>
+</medi:edimap>
