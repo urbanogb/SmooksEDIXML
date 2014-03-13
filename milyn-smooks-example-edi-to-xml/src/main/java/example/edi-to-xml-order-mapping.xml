@@ -52,8 +52,7 @@
 
 			<!-- Grupo 3 Legs -->
 
-			<medi:segment segcode="APD" xmltag="AdditionalProductDetails"
-				truncatable="true">
+			<medi:segment segcode="APD" xmltag="AdditionalProductDetails" truncatable="true" maxOccurs="-1">
 				<medi:field xmltag="legDetails">
 					<medi:component xmltag="NumberStops" required="false" />
 					<medi:component xmltag="LegDuration" required="false" />
@@ -150,14 +149,13 @@
 				<!-- Grupo 4 - Group 1A 06 1Group 4 ssr Information on Special Service 
 					Requests (SSR). AVERIGUAR COMO MAPEAR LOS SEGMENTOS QUE NO ESTAN EN EL DOCUMENTO -->
 
-				<!-- <medi:segment segcode="SSR" xmltag="ssrQuota"
-					truncatable="true">
+				 <medi:segment segcode="SSR" xmltag="ssrQuota" truncatable="true" minOccurs="0">
 					<medi:field xmltag="ssrDetails" truncatable="true">
 						<medi:component xmltag="ssrType" required="true" />
 						<medi:component xmltag="ssrThreshold" required="false" />
 					</medi:field>
 				
-				<medi:segment segcode="EQN" xmltag="ssrCounter" truncatable="true">
+				<medi:segment segcode="EQN" xmltag="ssrCounter" truncatable="true" minOccurs="0">
 					<medi:field xmltag="modeOfTransport" truncatable="true">
 						<medi:component xmltag="serviceType" required="true" />
 					</medi:field>
@@ -171,11 +169,11 @@
 					</medi:field>
 				</medi:segment>
 
-				<medi:segment segcode="SCI" xmltag="cabinCode" truncatable="true">
+				<medi:segment segcode="SCI" xmltag="cabinCode" truncatable="true" minOccurs="0">
 					<medi:field xmltag="cabinCode" truncatable="true" />
 				</medi:segment>
 
-				<medi:segment segcode="SDT" xmltag="nest" truncatable="true">
+				<medi:segment segcode="SDT" xmltag="nest" truncatable="true" minOccurs="0">
 					<medi:field xmltag="selectionDetails" truncatable="true">
 						<medi:component xmltag="optionCode" required="true" />
 						<medi:component xmltag="optionInformation" required="true" />
@@ -183,7 +181,7 @@
 				</medi:segment>
 				
 				</medi:segment>
- -->
+
 				
 				<medi:segment segcode="LEG" xmltag="saleableConfiguration"
 					truncatable="true">
@@ -198,20 +196,18 @@
 					<medi:field xmltag="crossCabinControls" truncatable="true" />
 				</medi:segment>
 
-<!-- 				<medi:segment segcode="EQN" xmltag="legCounters" truncatable="true">
+				<medi:segment segcode="EQN" xmltag="legCounters" truncatable="true" minOccurs="0">
 				<medi:field xmltag="quantityDetails" truncatable="true">
 						<medi:component xmltag="numberOfUnit" required="true" />
 						<medi:component xmltag="unitQualifier" required="false" />
 					</medi:field>
 				
-				</medi:segment>  -->
-				
+				</medi:segment> 
 				
 				
 <!-- 		Grupo 5 / Information on all the cabins of the leg. -->
 				
-			<medi:segment segcode="EQI" xmltag="AircraftConfigVersion2"
-					truncatable="true">
+			<medi:segment segcode="EQI" xmltag="AircraftConfigVersion2" truncatable="true" maxOccurs="-1">
 					<medi:field xmltag="fittedConfiguration" required="false"
 						truncatable="true">
 						<medi:component xmltag="cabinCode" required="false"
@@ -233,7 +229,7 @@
 							truncatable="true" />
 					</medi:field>
 
-				</medi:segment>
+				
 
 			 <medi:segment segcode="CBL" xmltag="AircraftConfigVersion2" truncatable="true">
 				<medi:field xmltag="regradeAdjustment" required="false" truncatable="true"/>
@@ -252,7 +248,50 @@
 					<medi:component xmltag="numberSeatsBlocked" required="false" truncatable="true" />
 				</medi:field>
 			</medi:segment>
- 
+			
+			<medi:segment segcode="EQN" xmltag="legCabinCounters" truncatable="true">
+					<medi:field xmltag="quantityDetails" truncatable="true">
+						<medi:component xmltag="numberOfUnit" required="false" />
+						<medi:component xmltag="unitQualifier" required="false" />
+					</medi:field>
+			</medi:segment>
+			
+			<medi:segment segcode="CBA" xmltag="legCabinCounters" truncatable="true">
+				<medi:field xmltag="upr" truncatable="true"/>
+				<medi:field xmltag="bookingsCounter" truncatable="true"/>
+				<medi:field xmltag="netAvailability" truncatable="true"/>
+				<medi:field xmltag="grossAvailability" truncatable="true"/>
+				<medi:field xmltag="acp" truncatable="true" required="false"/>
+				<medi:field xmltag="expectedToBoard" truncatable="true" required="false"/>
+				<medi:field xmltag="staffStandbyCounter" truncatable="true" required="false"/>
+				<medi:field xmltag="waitlistBookingsCounter" truncatable="true" required="false"/>
+				<medi:field xmltag="groupBookingsCounter" truncatable="true" required="false"/>
+			</medi:segment>
+			
+			<medi:segment segcode="BPR" xmltag="optimiserRecommendations" truncatable="true" minOccurs="0">
+				<medi:field xmltag="optimiseBidPrice" truncatable="true" required="false"/>
+				<medi:field xmltag="optimiseBPLowerBound" truncatable="true" required="false"/>
+				<medi:field xmltag="optimiseBPUpperBound" truncatable="true" required="false"/>
+				<medi:field xmltag="optimiseBPSeatLowerBound" truncatable="true" required="false"/>
+				<medi:field xmltag="optimiseBPSeatUpperBound" truncatable="true" required="false"/>	
+			</medi:segment>
+			
+			<medi:segment segcode="BUC" xmltag="revenueBucket" truncatable="true" minOccurs="0" maxOccurs="-1">
+				<medi:field xmltag="yieldRangeUpperValue" truncatable="true" required="true"/>
+				<medi:field xmltag="availabilityConstraint" truncatable="true" required="false"/>
+				<medi:field xmltag="deltaSeatsEquivalent" truncatable="true" required="false"/>
+				<medi:field xmltag="av1" truncatable="true" required="false"/>
+				<medi:field xmltag="av2" truncatable="true" required="false"/>
+				<medi:field xmltag="av3" truncatable="true" required="false"/>
+				<medi:field xmltag="yieldRangeLowerValue" truncatable="true" required="false"/>
+				<medi:field xmltag="subclassId" truncatable="true" required="false"/>
+				<medi:field xmltag="numberOfSeatsTaken" truncatable="true" required="false"/>
+				<medi:field xmltag="seatIndex" truncatable="true" required="false"/>		
+			</medi:segment>
+			
+ 			</medi:segment>
+ 			
+ 			
 			</medi:segment>
 
 		</medi:segment>
