@@ -7,7 +7,7 @@
 		component="&#31;" sub-component="~" />
 
 	<medi:segments xmltag="bif">
-		<medi:segment segcode="UNH" xmltag="message">
+		<medi:segment segcode="UNH" xmltag="message" maxOccurs="-1">
 			<medi:field xmltag="number" required="false" />
 
 			<medi:field xmltag="details">
@@ -254,7 +254,7 @@
 							truncatable="true" />
 					</medi:field>
 
-			 <medi:segment segcode="CBL" xmltag="AircraftConfigVersion2" truncatable="true" minOccurs="0">
+			 <medi:segment segcode="CBL" xmltag="AircraftConfigVersion2" truncatable="true" minOccurs="0" maxOccurs="-1">
 				<medi:field xmltag="regradeAdjustment" required="false" truncatable="true"/>
 				<medi:field xmltag="maxiRegradeAdjustment" required="false" truncatable="true"/>
 				<medi:field xmltag="unbalancedAdjustment" required="false" truncatable="true"/>	
@@ -272,14 +272,14 @@
 				</medi:field>
 			</medi:segment>
 			
-			<medi:segment segcode="EQN" xmltag="legCabinCounters" truncatable="true" minOccurs="0"> 
+			<medi:segment segcode="EQN" xmltag="legCabinCounters" truncatable="true" minOccurs="0" maxOccurs="-1"> 
 					<medi:field xmltag="quantityDetails" truncatable="true">
 						<medi:component xmltag="numberOfUnit" required="false" />
 						<medi:component xmltag="unitQualifier" required="false" />
 					</medi:field>
 			</medi:segment>
 			
-			<medi:segment segcode="CBA" xmltag="legCabinCounters" truncatable="true" minOccurs="0">
+			<medi:segment segcode="CBA" xmltag="legCabinCounters" truncatable="true" minOccurs="0" maxOccurs="-1">
 				<medi:field xmltag="upr" truncatable="true"/>
 				<medi:field xmltag="bookingsCounter" truncatable="true"/>
 				<medi:field xmltag="netAvailability" truncatable="true"/>
@@ -291,7 +291,7 @@
 				<medi:field xmltag="groupBookingsCounter" truncatable="true" required="false"/>
 			</medi:segment>
 			
-			<medi:segment segcode="BPR" xmltag="optimiserRecommendations" truncatable="true" minOccurs="0">
+			<medi:segment segcode="BPR" xmltag="optimiserRecommendations" truncatable="true" minOccurs="0" maxOccurs="-1">
 				<medi:field xmltag="optimiseBidPrice" truncatable="true" required="false"/>
 				<medi:field xmltag="optimiseBPLowerBound" truncatable="true" required="false"/>
 				<medi:field xmltag="optimiseBPUpperBound" truncatable="true" required="false"/>
